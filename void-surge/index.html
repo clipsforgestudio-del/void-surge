@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID SURGE</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="ui-overlay">
+            <!-- HUD will be dynamically rendered -->
+        </div>
+        <div id="menu-overlay" class="hidden">
+            <div class="menu-content">
+                <h1 class="title-glitch">VOID SURGE</h1>
+                <p class="subtitle">Survive the cosmic abyss</p>
+                <div class="menu-buttons">
+                    <button id="btn-play" class="menu-btn neon-btn">PLAY</button>
+                    <button id="btn-how-to-play" class="menu-btn neon-btn small">How to Play</button>
+                </div>
+                <div id="controls-info" class="hidden">
+                    <p>WASD - Move | Mouse - Aim | Click - Shoot | Space - Dash</p>
+                    <p>Collect orbs to level up. Survive as long as possible.</p>
+                </div>
+            </div>
+        </div>
+        <div id="game-over-overlay" class="hidden">
+            <div class="menu-content">
+                <h1 class="title-glitch death-text">VOID CLAIMED</h1>
+                <p class="subtitle" id="final-score-text">Score: 0</p>
+                <p class="subtitle" id="final-wave-text">Wave: 1</p>
+                <div class="menu-buttons">
+                    <button id="btn-retry" class="menu-btn neon-btn">RETRY</button>
+                    <button id="btn-menu" class="menu-btn neon-btn small">MENU</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Engine -->
+    <script src="src/utils/math.js"></script>
+    <script src="src/utils/draw.js"></script>
+    
+    <!-- Core Systems -->
+    <script src="src/core/engine.js"></script>
+    <script src="src/core/input.js"></script>
+    <script src="src/core/camera.js"></script>
+    <script src="src/core/audio.js"></script>
+    
+    <!-- Data Definitions -->
+    <script src="src/data/enemies.js"></script>
+    <script src="src/data/upgrades.js"></script>
+    <script src="src/data/waves.js"></script>
+    
+    <!-- Entities -->
+    <script src="src/entities/projectile.js"></script>
+    <script src="src/entities/enemy.js"></script>
+    <script src="src/entities/player.js"></script>
+    
+    <!-- Game Systems -->
+    <script src="src/systems/particles.js"></script>
+    <script src="src/systems/combat.js"></script>
+    <script src="src/systems/spawner.js"></script>
+    <script src="src/systems/upgrade.js"></script>
+    <script src="src/systems/ui.js"></script>
+    
+    <!-- Main Entry -->
+    <script src="src/main.js"></script>
+</body>
+</html>

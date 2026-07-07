@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VOID SURGE - Free Download</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;900&display=swap');
+        
+        body {
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at center, #0a0a1a, #000);
+        }
+
+        .title {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #0ff;
+            text-shadow: 0 0 20px rgba(0,255,255,0.8), 0 0 40px rgba(0,255,255,0.4);
+            letter-spacing: 8px;
+            animation: pulse 3s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { text-shadow: 0 0 20px rgba(0,255,255,0.8); }
+            50% { text-shadow: 0 0 40px rgba(0,255,255,1), 0 0 80px rgba(0,255,255,0.5); }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #888;
+            margin-bottom: 2rem;
+            letter-spacing: 4px;
+        }
+
+        .controls {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        .controls span {
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        kbd {
+            background: rgba(0,255,255,0.1);
+            border: 1px solid rgba(0,255,255,0.3);
+            padding: 0.2rem 0.5rem;
+            color: #0ff;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            text-decoration: none;
+            padding: 1.2rem 3rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid;
+            min-width: 320px;
+        }
+
+        .btn.download {
+            border-color: #0ff;
+            color: #0ff;
+            background: transparent;
+        }
+        .btn.download:hover {
+            background: #0ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0,255,255,0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn.source {
+            border-color: rgba(255,255,255,0.2);
+            color: #888;
+        }
+        .btn.source:hover {
+            border-color: #fff;
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .info {
+            margin-top: 3rem;
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .info span {
+            color: #555;
+            font-size: 0.8rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(0,255,255,0.1);
+            border: 1px solid rgba(0,255,255,0.2);
+            padding: 0.3rem 1rem;
+            margin: 0.3rem;
+            color: #0ff;
+            font-size: 0.75rem;
+        }
+
+        .build-guide {
+            margin-top: 3rem;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .build-guide h3 {
+            color: #0ff;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .build-guide p {
+            color: #888;
+            font-size: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .build-guide code {
+            display: block;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(0,255,255,0.2);
+            padding: 1rem;
+            margin: 0.5rem 0;
+            font-size: 0.75rem;
+            line-height: 1.8;
+            color: #aaa;
+        }
+
+        .build-guide .cmd {
+            color: #0ff;
+        }
+
+        .screenshots {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .screenshot-placeholder {
+            width: 280px;
+            height: 180px;
+            border: 1px solid rgba(0,255,255,0.2);
+            background: rgba(0,255,255,0.03);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 0.8rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .screenshot-placeholder::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(0,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(255,0,255,0.05) 0%, transparent 50%);
+        }
+
+        .screenshot-placeholder span {
+            position: relative;
+            z-index: 1;
+        }
+
+        footer {
+            margin-top: 3rem;
+            color: #444;
+            font-size: 0.7rem;
+        }
+
+        @media (max-width: 600px) {
+            .title { font-size: 2.5rem; letter-spacing: 4px; }
+            .btn { min-width: auto; width: 100%; font-size: 0.9rem; padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+
+    <div class="badge">FREE INDIE GAME</div>
+    <h1 class="title">VOID SURGE</h1>
+    <p class="subtitle">Survive the cosmic abyss</p>
+
+    <div class="controls">
+        <span><kbd>W A S D</kbd> Move</span>
+        <span><kbd>🖱 Click</kbd> Shoot</span>
+        <span><kbd>SPACE</kbd> Dash</span>
+    </div>
+
+    <div class="screenshots">
+        <div class="screenshot-placeholder"><span>⚔️ Neon Combat</span></div>
+        <div class="screenshot-placeholder"><span>👾 Enemy Waves</span></div>
+        <div class="screenshot-placeholder"><span>⚡ Upgrade System</span></div>
+    </div>
+
+    <div class="buttons">
+        <a href="void-surge.zip" class="btn download" onclick="handleDownload(event, this)">
+            ⬇ DOWNLOAD GAME (250 KB)
+        </a>
+        <a href="#" class="btn source" onclick="showBuildInstructions(event)">
+            🔧 Need .EXE? Build it yourself
+        </a>
+    </div>
+
+    <div class="info">
+        <span>🎮 6 Enemy Types</span>
+        <span>⚡ 12 Upgrade</span>
+        <span>👾 Boss Fights</span>
+        <span>🎵 Procedural Audio</span>
+        <span>🆓 Free & Open Source</span>
+    </div>
+
+    <div id="build-guide" class="build-guide" style="display:none;">
+        <h3>🔧 Build .EXE in 2 minutes</h3>
+        <p>You need Node.js installed. If you don't have it:</p>
+        <p>👉 <a href="https://nodejs.org" style="color:#0ff;" target="_blank">Download Node.js here (free)</a></p>
+        <p>Then follow these steps:</p>
+        <code>
+1. Unzip the downloaded file<br>
+2. Open a terminal in the <span class="cmd">void-surge</span> folder<br>
+3. Run: <span class="cmd">npm install --save-dev electron electron-builder</span><br>
+4. Run: <span class="cmd">npm run build:win</span><br>
+5. Get your <span style="color:#0ff;">.EXE</span> in the <span style="color:#0ff;">dist/</span> folder!
+        </code>
+        <p style="font-size:0.7rem;color:#555;">Or just double-click <strong>BUILD.bat</strong> for automatic setup!</p>
+    </div>
+
+    <footer>
+        <p>© 2026 Void Surge Studio — Made with ❤️ by a solo developer</p>
+    </footer>
+
+    <script>
+        // Stars background
+        (function() {
+            const body = document.body;
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.style.cssText = `
+                    position: fixed;
+                    width: ${Math.random() * 2 + 1}px;
+                    height: ${Math.random() * 2 + 1}px;
+                    background: rgba(255,255,255,${Math.random() * 0.5 + 0.1});
+                    border-radius: 50%;
+                    top: ${Math.random() * 100}%;
+                    left: ${Math.random() * 100}%;
+                    animation: twinkle ${Math.random() * 3 + 2}s ease-in-out infinite;
+                    z-index: -1;
+                `;
+                body.appendChild(star);
+            }
+        })();
+
+        // Add twinkle keyframes
+        const style = document.createElement('style');
+        style.textContent = `@keyframes twinkle { 0%,100% { opacity: 0.3; } 50% { opacity: 1; } }`;
+        document.head.appendChild(style);
+
+        // Handle download
+        function handleDownload(e, btn) {
+            // Create a ZIP alert - in production this would be a real zip
+            btn.textContent = '⬇ Preparing download...';
+            btn.style.opacity = '0.5';
+            
+            // Since we can't create a real zip here, provide the source
+            setTimeout(() => {
+                btn.textContent = '✅ Game files ready in void-surge/ folder!';
+                btn.style.borderColor = '#0f0';
+                btn.style.color = '#0f0';
+                alert([
+                    '📁 VOID SURGE - Download Ready!',
+                    '',
+                    'The game is located in the folder:',
+                    'void-surge/',
+                    '',
+                    '📖 To play: Open index.html in your browser',
+                    '🪟 To make .EXE: Run BUILD.bat (auto-installs Node.js)',
+                    '',
+                    'Or upload both folders to GitHub Pages for a public link!'
+                ].join('\n'));
+            }, 1000);
+        }
+
+        function showBuildInstructions(e) {
+            e.preventDefault();
+            const guide = document.getElementById('build-guide');
+            if (guide.style.display === 'none') {
+                guide.style.display = 'block';
+                guide.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                guide.style.display = 'none';
+            }
+        }
+
+        console.log('%c VOID SURGE ', 'font-size:24px;font-weight:bold;color:#0ff;');
+        console.log('%c Download the game and survive the cosmic abyss!', 'font-size:14px;color:#888;');
+    </script>
+</body>
+</html>
